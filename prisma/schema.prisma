@@ -30,4 +30,4 @@ model User {
   tasks     Task[]
 
   @@map("users")
-} 
+}
