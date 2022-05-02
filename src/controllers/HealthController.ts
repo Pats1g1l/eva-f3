@@ -13,4 +13,3 @@ export default class HealthController {
     res.send('pong')
   }
 }
-//asdsasdasdsd
