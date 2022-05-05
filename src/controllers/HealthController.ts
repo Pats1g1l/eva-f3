@@ -1,4 +1,4 @@
-import { Request, Response } from "express"
+import { Request, Response } from "express";
 
 export default class HealthController {
   public readonly info = (_req: Request, res: Response) => {
