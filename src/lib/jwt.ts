@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import { UserDTO, UserTokenPayload } from "../models/dto/UserDTO";
 
-const secret = process.env.JWT_SECRET as string;
+const secret = process.env.JWT_SECRET || 'secret'
 
 if (!secret) {
   throw new Error("JWT Secret not found on env variables");

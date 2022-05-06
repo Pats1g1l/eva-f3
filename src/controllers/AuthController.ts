@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 import { generateToken } from "../lib/jwt";
 import UserRepository from "../models/repositories/UserRepository";
 import { loginSchema, registerSchema } from "../models/validators/userSchemas";
- 
+
 export default class AuthController {
   public readonly login = async (req: Request, res: Response) => {
     const credencials = req.body;
@@ -47,7 +47,7 @@ export default class AuthController {
     }
 
     const hashedPassword = bcrypt.hashSync(user.password, 10);
-//Se utiliza para evitar que se vuelva a crear un usuario ya existente.
+    //Se utiliza para evitar que se vuelva a crear un usuario ya existente.
     try {
       const newUser = await repository.create({
         ...user,
