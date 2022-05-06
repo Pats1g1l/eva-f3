@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 import { generateToken } from "../lib/jwt";
 import UserRepository from "../models/repositories/UserRepository";
 import { loginSchema, registerSchema } from "../models/validators/userSchemas";
-
+ 
 export default class AuthController {
   public readonly login = async (req: Request, res: Response) => {
     const credencials = req.body;
