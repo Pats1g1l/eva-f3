@@ -22,7 +22,7 @@ export default class TaskControllers {
     res.json({ task })
 
   }
-  
+
   public readonly create = async (req: Request, res: Response) => {
     const task = req.body as CreateTaskDTO;
 
@@ -66,6 +66,6 @@ export default class TaskControllers {
     const repository = new TaskRepository(user.sub);
     await repository.delete(parseInt(id));
     res.sendStatus(204);
-
+     
   };
 }
