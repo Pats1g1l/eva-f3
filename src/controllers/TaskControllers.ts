@@ -22,7 +22,7 @@ export default class TaskControllers {
     res.json({ task })
 
   }
-
+  
   public readonly create = async (req: Request, res: Response) => {
     const task = req.body as CreateTaskDTO;
 
