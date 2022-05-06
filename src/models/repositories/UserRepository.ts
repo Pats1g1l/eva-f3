@@ -8,6 +8,7 @@ import {
 
 const prisma = new PrismaClient();
 
+//Elimina la passwd del usuario y retorna los valores sin la contraseña//
 export default class UserRepository {
   public readonly findAll = async (): Promise<UserDTO[]> => {
     const users = await prisma.user.findMany();
@@ -33,8 +34,7 @@ export default class UserRepository {
     return userWithoutPassword;
   };
 
-  /* aquí va lo del find email 
-      findByEmail*/
+  // aquí va lo del find email findByEmail//
   public readonly findByEmail = async (
     email: string
   ): Promise<LoginUserDTO | undefined> => {

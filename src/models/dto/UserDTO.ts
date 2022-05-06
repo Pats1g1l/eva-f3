@@ -1,4 +1,5 @@
 export interface BaseUserDTO {
+  id?: number;
   email: string;
   firstName: string;
   lastName: string;
@@ -12,7 +13,7 @@ export interface CreateUserDTO extends BaseUserDTO {
   password: string;
 }
 
-export type UpdateUserDTO = Partial<CreateUserDTO>;
+export type UpdateUserDTO = Partial<CreateUserDTO>
 
 export interface LoginUserDTO extends UserDTO {
   password: string;

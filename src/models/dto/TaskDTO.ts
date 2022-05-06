@@ -10,6 +10,8 @@ export interface TaskDTO extends BaseTaskDTO {
   userId: number | null;
 }
 
-export interface CreateTaskDTO extends BaseTaskDTO {}
+export interface CreateTaskDTO extends BaseTaskDTO {
+}
 
-export interface UpdateTaskDTO extends Partial<BaseTaskDTO> {}
+export interface UpdateTaskDTO extends Partial<BaseTaskDTO> {
+}

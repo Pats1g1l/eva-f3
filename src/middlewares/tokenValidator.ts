@@ -12,12 +12,8 @@ export default function tokenValidator() {
       return;
     }
 
-    const [bearer, token] = authHeader.split(" ");
+    const [, token] = authHeader.split(' ');
 
-    if (bearer !== "Bearer") {
-      res.status(401).json({ message: MISSING_AUTH_MSG });
-      return;
-    }
     try {
       const tokenPayload = verifyToken(token);
       req.user = tokenPayload;

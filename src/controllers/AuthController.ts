@@ -21,7 +21,7 @@ export default class AuthController {
       const userFRomDb = await repository.findByEmail(credencials.email);
       if (
         !userFRomDb ||
-        !bcrypt.compareSync(credencials.password, userFRomDb.password)
+        !bcrypt.compareSync(credencials.password, userFRomDb.password)  //-.
       ) {
         res.status(401).json({ message: "Invalid Credentials" });
         return;
@@ -37,6 +37,8 @@ export default class AuthController {
   public readonly register = async (req: Request, res: Response) => {
     const user = req.body as CreateUserDTO;
 
+    const repository = new UserRepository();
+
     try {
       await registerSchema.validateAsync(user);
     } catch (error) {
@@ -45,12 +47,11 @@ export default class AuthController {
     }
 
     const hashedPassword = bcrypt.hashSync(user.password, 10);
-    const repository = new UserRepository();
-
+//Se utiliza para evitar que se vuelva a crear un usuario ya existente.
     try {
       const newUser = await repository.create({
         ...user,
-        password: hashedPassword,
+        password: hashedPassword
       });
       res.status(201).json(newUser);
     } catch (error) {
@@ -58,7 +59,6 @@ export default class AuthController {
         res.status(409).json({ message: "User already exists" });
         return;
       }
-      console.log(error);
       res.status(500).json({ message: "Something went wrong" });
     }
   };
